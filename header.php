@@ -9,7 +9,7 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
     <?php wp_head(); ?>
 	<meta name="ahrefs-site-verification" content="e20eeca935e2a1a85dfa97ecfbf69aedfd29ed4c87fcb1f39e59b69f75696f29">
 
