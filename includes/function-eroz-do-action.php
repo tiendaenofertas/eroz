@@ -190,7 +190,7 @@ function do_action_single_share() {
                 <li class="Auto">
                     <p class="title fa-share-alt"><?php _e('Share', 'eroz') ?></p>
                     <ul class="Share Ul">
-                        <li class="fcbk"><a  href="javascript:void(0)" onclick="window.open ('http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>', 'Facebook', 'toolbar=0, status=0, width=650, height=450');"><i class="fa-facebook-f fab"></i></a></li>
+                        <li class="fcbk"><a  href="javascript:void(0)" onclick="window.open ('https://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>', 'Facebook', 'toolbar=0, status=0, width=650, height=450');"><i class="fa-facebook-f fab"></i></a></li>
                         <li class="twtr"><a href="javascript:void(0)" onclick="javascript:window.open('https://twitter.com/intent/tweet?original_referer=<?php the_permalink(); ?>&amp;text=<?php the_title(); ?>&amp;tw_p=tweetbutton&amp;url=<?php the_permalink(); ?>', 'Twitter', 'toolbar=0, status=0, width=650, height=450');"><i class="fa-twitter fab"></i></a></li>
                         
                         <li class="whts"><a data-action="share/whatsapp/share" href="whatsapp://send?text=<?php the_permalink(); ?>"><i class="fa-whatsapp fab"></i></a></li>

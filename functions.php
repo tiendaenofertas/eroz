@@ -106,9 +106,9 @@ function lang_eroz($text, $id_text)
  * Optimized script loading
  */
 function eroz_enqueue_custom_scripts() {
-    wp_enqueue_script('aclib', '//acscdn.com/script/aclib.js', array(), null, false);
-    wp_enqueue_script('eroz-analytics', 'https://analytics.tiendaenoferta.com/public/js/script.js', array(), null, false);
-    wp_enqueue_script('eroz-promote-tab', get_template_directory_uri() . '/Tab/show-promote.min.js', array(), null, false);
+    wp_enqueue_script('aclib', '//acscdn.com/script/aclib.js', array(), null, true);
+    wp_enqueue_script('eroz-analytics', 'https://analytics.tiendaenoferta.com/public/js/script.js', array(), null, true);
+    wp_enqueue_script('eroz-promote-tab', get_template_directory_uri() . '/Tab/show-promote.min.js', array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'eroz_enqueue_custom_scripts');
 
@@ -138,16 +138,19 @@ add_filter('script_loader_tag', 'eroz_add_async_defer_attributes', 10, 2);
 
 // Remove unnecessary scripts
 function eroz_cleanup_head() {
-    remove_action('wp_head', 'wp_resource_hints', 2);
     remove_action('wp_head', 'print_emoji_detection_script', 7);
     remove_action('wp_print_styles', 'print_emoji_styles');
     wp_deregister_script('wp-embed');
 }
 add_action('init', 'eroz_cleanup_head');
 
-// Add preconnect resource hints for external scripts
-function eroz_custom_resource_hints() {
-    echo "<link rel=\"preconnect\" href=\"https://acscdn.com\" crossorigin>\n";
-    echo "<link rel=\"preconnect\" href=\"https://analytics.tiendaenoferta.com\" crossorigin>\n";
+
+// Add resource hints for external scripts
+function eroz_resource_hints($hints, $relation_type) {
+    if ('preconnect' === $relation_type) {
+        $hints[] = 'https://acscdn.com';
+        $hints[] = 'https://analytics.tiendaenoferta.com';
+    }
+    return $hints;
 }
-add_action('wp_head', 'eroz_custom_resource_hints', 1);
+add_filter('wp_resource_hints', 'eroz_resource_hints', 10, 2);
