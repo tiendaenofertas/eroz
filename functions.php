@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 global $wpdb;
 
 $_details = wp_get_theme('eroz');

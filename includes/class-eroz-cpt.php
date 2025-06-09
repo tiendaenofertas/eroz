@@ -1,4 +1,5 @@
-<?php 
+<?php
+declare(strict_types=1);
 class EROZ_Create_CustomPostType {
     public function blog() {
         self::create_CustomPostType('blog', 'Blog', 'blog_cpt');
