@@ -23,7 +23,7 @@ class BCT_Admin
          * Archivo de hojas de estilos principales
          * de la administración
          */
-        wp_enqueue_style('bct_wordpress_global_css', EROZ_DIR_URI . 'admin/css/eroz-wordpress.css', array(), '1.0.0', 'all');
+        wp_enqueue_style('bct_wordpress_global_css', EROZ_DIR_URI . 'admin/css/eroz-wordpress.css', array(), EROZ_VERSION, 'all');
         /**
          * Condicional para controlar la carga de los archivos
          * solamente en la página del plugin
@@ -37,7 +37,7 @@ class BCT_Admin
          * Archivo de hojas de estilos principales
          * de la administración
          */
-        wp_enqueue_style($this->theme_name, EROZ_DIR_URI . 'admin/css/eroz-admin.css', array(), '1.0.0', 'all');
+        wp_enqueue_style($this->theme_name, EROZ_DIR_URI . 'admin/css/eroz-admin.css', array(), EROZ_VERSION, 'all');
     }
     /**
      * Registra los archivos Javascript del área de administración
@@ -45,7 +45,7 @@ class BCT_Admin
     public function enqueue_scripts($hook)
     {
         wp_enqueue_media();
-        wp_enqueue_script('admin_global_js', EROZ_DIR_URI . 'admin/js/eroz-global.js', ['jquery'], '1.0.0', true);
+        wp_enqueue_script('admin_global_js', EROZ_DIR_URI . 'admin/js/eroz-global.js', ['jquery'], EROZ_VERSION, true);
         /**
          * Condicional para controlar la carga de los archivos
          * solamente en la página del plugin
@@ -59,7 +59,7 @@ class BCT_Admin
          * Archivo Javascript principal
          * de la administración
          */
-        wp_enqueue_script($this->theme_name, EROZ_DIR_URI . 'admin/js/bct-admin.js', ['jquery'], '1.0.1', true);
+        wp_enqueue_script($this->theme_name, EROZ_DIR_URI . 'admin/js/bct-admin.js', ['jquery'], EROZ_VERSION, true);
         /*Localize JS*/
         wp_localize_script(
             $this->theme_name,

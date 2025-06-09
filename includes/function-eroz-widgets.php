@@ -127,7 +127,7 @@ class widget_post_election extends WP_Widget {
             if ( $the_query->have_posts() ) :
                 while ( $the_query->have_posts() ) : $the_query->the_post(); 
                     get_template_part( 'public/templates/loop', 'principal' );
-                endwhile; endif; wp_reset_query(); ?>
+                endwhile; wp_reset_postdata(); endif; ?>
         </div>
         <?php if($more != ''){ ?>
             <a href="<?php echo $more; ?>" class="Button A Sm fa-arrow-right"><?php _e('View All', 'eroz'); ?></a>

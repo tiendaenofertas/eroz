@@ -39,7 +39,7 @@
                             <?php $con++;
                             endwhile;
                         endif;
-                        wp_reset_query();
+                        wp_reset_postdata();
                     } ?>
                 </tbody>
             </table>

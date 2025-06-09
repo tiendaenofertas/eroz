@@ -60,11 +60,11 @@ if(have_posts()) : while(have_posts()) : the_post();?>
         $video_4     = get_post_meta( get_the_ID(), 'video_optional_3', true );
         $video_5     = get_post_meta( get_the_ID(), 'video_optional_4', true );
 		
-		if (strpos($video_1, '[fvplayer') !== false) { $video_1 = do_shortcode($video_1); }
-		if (strpos($video_2, '[fvplayer') !== false) { $video_2 = do_shortcode($video_2); }
-		if (strpos($video_3, '[fvplayer') !== false) { $video_3 = do_shortcode($video_3); }
-		if (strpos($video_4, '[fvplayer') !== false) { $video_4 = do_shortcode($video_4); }
-		if (strpos($video_5, '[fvplayer') !== false) { $video_5 = do_shortcode($video_5); }
+                if ($video_1 && strpos($video_1, '[fvplayer') !== false) { $video_1 = do_shortcode($video_1); }
+                if ($video_2 && strpos($video_2, '[fvplayer') !== false) { $video_2 = do_shortcode($video_2); }
+                if ($video_3 && strpos($video_3, '[fvplayer') !== false) { $video_3 = do_shortcode($video_3); }
+                if ($video_4 && strpos($video_4, '[fvplayer') !== false) { $video_4 = do_shortcode($video_4); }
+                if ($video_5 && strpos($video_5, '[fvplayer') !== false) { $video_5 = do_shortcode($video_5); }
 		
 		if($video_1){$videos[] = $video_1;}
         if($video_2){$videos[] = $video_2;}

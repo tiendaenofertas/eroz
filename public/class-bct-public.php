@@ -12,14 +12,14 @@ class BCT_Public
     }
     public function enqueue_styles()
     {
-        wp_enqueue_style($this->theme_name, EROZ_DIR_URI . 'public/css/eroz-public.css', array(), '1.8.2', 'all');
+        wp_enqueue_style($this->theme_name, EROZ_DIR_URI . 'public/css/eroz-public.css', array(), EROZ_VERSION, 'all');
     }
     public function enqueue_scripts()
     {
         //wp_enqueue_script( 'funciones_public_jquery', EROZ_DIR_URI . 'public/js/jquery.js',  array(), '1.0.24', true );
-        wp_enqueue_script('funciones_public', EROZ_DIR_URI . 'public/js/eroz-public.js',  array('jquery'), '1.8.2', true);
+        wp_enqueue_script('funciones_public', EROZ_DIR_URI . 'public/js/eroz-public.js',  array('jquery'), EROZ_VERSION, true);
         if (is_singular() && comments_open() && (get_option('thread_comments') == 1)) {
-            wp_enqueue_script('comment-reply', 'wp-includes/js/comment-reply', array(), false, true);
+            wp_enqueue_script('comment-reply');
         }
         $enabled_cookies       = get_option('eroz_cookie_enabled');
         $url_page_cookies      = get_option('eroz_cookie_page_url');

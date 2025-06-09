@@ -254,7 +254,7 @@ function do_action_single_related() {
                 while ( $the_related->have_posts() ) : $the_related->the_post(); 
                     get_template_part( 'public/templates/loop', 'principal' );
                 endwhile;
-            wp_reset_query(); ?>
+            wp_reset_postdata(); ?>
         </section>
     <?php endif;  
 }
