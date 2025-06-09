@@ -49,7 +49,7 @@ class EROZ_public_ajax {
                     $video_0 = $embed_ace;
                 } 
 
-                if ($video_0 && strpos($video_0, '[fvplayer') !== false) { $video_0 = do_shortcode($video_0); }
+                if (strpos($video_0, '[fvplayer') !== false) { $video_0 = do_shortcode($video_0); }
                 if($video_0){$videos[] = $video_0;}
             }
             $video_1     = get_post_meta( $id, $input_video, true );
