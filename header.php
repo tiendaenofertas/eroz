@@ -4,7 +4,7 @@
 	<meta nombre="b2d7114a3ea69b5069d2f0f48e3d65203e3cd8e9" contenido="b2d7114a3ea69b5069d2f0f48e3d65203e3cd8e9" />
 
 <meta content="123ca53617443eb13d242f0f53beffbf" name="admonetix1-site-verification" />
-<script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
+
 
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -12,9 +12,9 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <?php wp_head(); ?>
 	<meta name="ahrefs-site-verification" content="e20eeca935e2a1a85dfa97ecfbf69aedfd29ed4c87fcb1f39e59b69f75696f29">
-	<script data-host="https://analytics.tiendaenoferta.com/public" data-dnt="false" src="https://analytics.tiendaenoferta.com/public/js/script.js" id="ZwSg9rf6GA" async defer></script>
+
 	<meta name="trafficox" content="mU6e810V5Z-KxKKkGkT1Hg">
-	<script src="Tab/show-promote.min.js" defer></script>
+
 </head>
 <script>
 (function () {
@@ -68,6 +68,7 @@
 	
 <?php global $eroz_master; ?>
 <body <?php body_class(); ?>>
+    <?php wp_body_open(); ?>
     <div id="Ez-Wp">
         <header class="Header">
             <div class="Top">
@@ -105,5 +106,4 @@
             <?php } ?>
             </nav>
         </header>
-<?php 
  
