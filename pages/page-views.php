@@ -36,7 +36,7 @@ get_header(); ?>
                         </div> 
                     <?php else: ?> 
                         <div> <?php _e('No hay articulos', 'eroz'); ?> </div>
-                    <?php endif; wp_reset_query(); ?>
+                    <?php endif; wp_reset_postdata(); ?>
                 </section>
             </main> 
             <?php get_template_part( 'public/templates/sidebar' ); ?>

@@ -1,4 +1,5 @@
-<?php 
+<?php
+declare(strict_types=1);
 /**
  * WIDGET CATEGORY - TAG : LIST
  * v.1.0.1
@@ -69,9 +70,9 @@ class widget_categories extends WP_Widget {
         <?php
     }
     public function update( $new_instance, $old_instance ) {
-        foreach( $new_instance as $key => $value )
-        {
-            $updated_instance[$key] = sanitize_text_field($value);
+        $updated_instance = [];
+        foreach ( $new_instance as $key => $value ) {
+            $updated_instance[ $key ] = sanitize_text_field( $value );
         }
         return $updated_instance;
     }
@@ -127,7 +128,7 @@ class widget_post_election extends WP_Widget {
             if ( $the_query->have_posts() ) :
                 while ( $the_query->have_posts() ) : $the_query->the_post(); 
                     get_template_part( 'public/templates/loop', 'principal' );
-                endwhile; endif; wp_reset_query(); ?>
+                endwhile; endif; wp_reset_postdata(); ?>
         </div>
         <?php if($more != ''){ ?>
             <a href="<?php echo $more; ?>" class="Button A Sm fa-arrow-right"><?php _e('View All', 'eroz'); ?></a>
@@ -161,9 +162,9 @@ class widget_post_election extends WP_Widget {
         <?php
     }
     public function update( $new_instance, $old_instance ) {
-        foreach( $new_instance as $key => $value )
-        {
-            $updated_instance[$key] = sanitize_text_field($value);
+        $updated_instance = [];
+        foreach ( $new_instance as $key => $value ) {
+            $updated_instance[ $key ] = sanitize_text_field( $value );
         }
         return $updated_instance;
     }

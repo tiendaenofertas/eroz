@@ -33,13 +33,13 @@
                                 <tr>
                                     <td class="frst"><?php echo $con; ?></td>
                                     <td><a class="row-title" target="_blank" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></td>
-                                    <td><?php $values = get_post_custom_values("_repor"); echo $values[0]; ?></td>
+                                    <td><?php $values = get_post_custom_values('_repor'); echo !empty($values) ? $values[0] : ''; ?></td>
                                     <td><a data-id="<?php the_ID(); ?>"class="clean-report"><span class="dashicons dashicons-trash"></span> <?php _e('Delete', 'eroz'); ?></a></td>
                                 </tr>
                             <?php $con++;
                             endwhile;
                         endif;
-                        wp_reset_query();
+                        wp_reset_postdata();
                     } ?>
                 </tbody>
             </table>

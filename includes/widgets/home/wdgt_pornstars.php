@@ -1,4 +1,5 @@
-<?php 
+<?php
+declare(strict_types=1);
 add_action( 'widgets_init', function(){
     register_widget( 'wdgt_pornstar' );
 });
@@ -78,9 +79,9 @@ class wdgt_pornstar extends WP_Widget {
     #Save Data
     public function update( $new_instance, $old_instance ) {
         // processes widget options to be saved
-        foreach( $new_instance as $key => $value )
-        {
-            $updated_instance[$key] = sanitize_text_field($value);
+        $updated_instance = [];
+        foreach ( $new_instance as $key => $value ) {
+            $updated_instance[ $key ] = sanitize_text_field( $value );
         }
         return $updated_instance;
     }

@@ -1,4 +1,5 @@
-<?php 
+<?php
+declare(strict_types=1);
 add_action( 'widgets_init', function(){
     register_widget( 'wdgt_categories' );
 });
@@ -28,7 +29,11 @@ class wdgt_categories extends WP_Widget {
         <section class="Eroz-Thumbs List">
             <?php 
             if($order_cat == 'random') {
-                $categories = get_terms('category', 'orderby=name&order= ASC&hide_empty=0');
+                $categories = get_terms('category', array(
+                    'orderby'    => 'name',
+                    'order'      => 'ASC',
+                    'hide_empty' => 0
+                ));
                 shuffle($categories);
                 $categories = array_slice($categories, 0, $number);
             } else {
@@ -116,9 +121,9 @@ class wdgt_categories extends WP_Widget {
     #Save Data
     public function update( $new_instance, $old_instance ) {
         // processes widget options to be saved
-        foreach( $new_instance as $key => $value )
-        {
-            $updated_instance[$key] = sanitize_text_field($value);
+        $updated_instance = [];
+        foreach ( $new_instance as $key => $value ) {
+            $updated_instance[ $key ] = sanitize_text_field( $value );
         }
         return $updated_instance;
     }

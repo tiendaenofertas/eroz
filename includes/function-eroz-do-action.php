@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 /**
  * home.php
@@ -37,7 +38,11 @@ function do_action_home_categories_recommended(){
                 <section class="Eroz-Thumbs List">
                     <?php 
                     if($order_cat == 'random') {
-                        $categories = get_terms('category', 'orderby=name&order= ASC&hide_empty=0');
+                        $categories = get_terms('category', array(
+                            'orderby'    => 'name',
+                            'order'      => 'ASC',
+                            'hide_empty' => 0
+                        ));
                         shuffle($categories);
                         $categories = array_slice($categories, 0, $number_cat);
                     } else {
@@ -89,12 +94,12 @@ function do_action_footer_description(){
                 </section>
             <?php } 
         } elseif(is_single()) { 
-            global $post; 
-            $desc = get_post_meta( $post->ID, 'eroz_post_desc' ); 
-            if($desc){ ?>
+            global $post;
+            $desc = get_post_meta( $post->ID, 'eroz_post_desc', true );
+            if ( $desc ) { ?>
                 <section class="Top">
                     <div class="Description Container">
-                        <?php echo $desc[0]; ?>
+                        <?php echo $desc; ?>
                     </div>
                 </section>
             <?php }
@@ -254,7 +259,7 @@ function do_action_single_related() {
                 while ( $the_related->have_posts() ) : $the_related->the_post(); 
                     get_template_part( 'public/templates/loop', 'principal' );
                 endwhile;
-            wp_reset_query(); ?>
+            wp_reset_postdata(); ?>
         </section>
     <?php endif;  
 }

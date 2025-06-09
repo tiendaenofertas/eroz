@@ -1,4 +1,4 @@
-<?php get_header(); 
+<?php declare(strict_types=1); get_header();
 if(have_posts()) : while(have_posts()) : the_post();?>
     <div class="Body">
         <?php $ads_video_top   = get_option( 'eroz_ads_single_top');
@@ -138,8 +138,17 @@ if(have_posts()) : while(have_posts()) : the_post();?>
                             $content = preg_replace("/(<iframe[^<]+<\/iframe>)/", '', $content); ?>
                             <?php echo $content; ?>
                         </div>
-                        <p class="entry-meta"><?php if(get_post_meta( $post->ID, 'views' )[0]){ ?><span class="Views fa-eye"><?php echo get_post_meta( $post->ID, 'views' )[0]; ?></span><?php } ?> <?php $input_duration = get_option( 'eroz_meta_duration', true ); if(get_post_meta( $post->ID, $input_duration)[0] and secondtotime(get_post_meta( $post->ID, $input_duration, true ))){ ?><span class="Time fa-clock"><?php 
-                            echo secondtotime(get_post_meta( $post->ID, $input_duration, true )); ?></span><?php } ?></p>
+                        <p class="entry-meta"><?php
+                            $views_count = get_post_meta( $post->ID, 'views', true );
+                            if ( $views_count ) {
+                                ?><span class="Views fa-eye"><?php echo $views_count; ?></span><?php
+                            }
+                            $input_duration = get_option( 'eroz_meta_duration', true );
+                            $duration_meta  = get_post_meta( $post->ID, $input_duration, true );
+                            if ( $duration_meta && secondtotime( $duration_meta ) ) {
+                                ?><span class="Time fa-clock"><?php echo secondtotime( $duration_meta ); ?></span><?php
+                            }
+                        ?></p>
                         <p class="title fa-folder"><?php _e( 'Categories', 'eroz' ); ?> </p>
                         <p class="EzLinks"><?php get_terms_taxonomy('category'); ?></p>
                         <?php $tags_list = get_the_tag_list( '', '', '', $post->id); 

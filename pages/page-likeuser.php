@@ -47,7 +47,7 @@ if(isset($_COOKIE['vote_er']))
                                 <div>
                                     <?php _e('No hay articulos', 'eroz'); ?>
                                 </div>
-                            <?php endif; wp_reset_query();  ?>
+                            <?php endif; wp_reset_postdata();  ?>
                         <?php } ?>
                     </section>
                 </main>

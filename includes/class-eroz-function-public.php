@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Position Sidebar
  *   1. Left = SdbL
@@ -64,8 +65,13 @@ function get_breadcrumb(){
     if(is_page()) { ?>
         <p class="Breadcrumb fa-home"><a href="<?php echo esc_url( home_url() ); ?>"><?php _e('Home', 'eroz'); ?></a> <span class="fa-chevron-right"></span> <strong><?php echo get_the_title(); ?></strong></p>
     <?php } elseif(is_single()) { 
-        $category = get_the_category(); ?>
-        <p class="Breadcrumb fa-home"><a href="<?php echo esc_url( home_url() ); ?>"><?php _e('Home', 'eroz'); ?></a> <span class="fa-chevron-right"></span> <a href="<?php echo get_category_link( $category[0]->term_id ); ?>"><?php echo $category[0]->cat_name; ?></a> <span class="fa-chevron-right"></span> <strong><?php echo get_the_title(); ?></strong></p>
+        $category = get_the_category();
+        if ( ! empty( $category ) ) {
+            $first_cat = $category[0];
+            ?>
+            <p class="Breadcrumb fa-home"><a href="<?php echo esc_url( home_url() ); ?>"><?php _e('Home', 'eroz'); ?></a> <span class="fa-chevron-right"></span> <a href="<?php echo get_category_link( $first_cat->term_id ); ?>"><?php echo $first_cat->cat_name; ?></a> <span class="fa-chevron-right"></span> <strong><?php echo get_the_title(); ?></strong></p>
+            <?php
+        }
     <?php } elseif(is_category() or is_tag()) { ?>
         <p class="Breadcrumb fa-home"><a href="<?php echo esc_url( home_url() ); ?>"><?php _e('Home', 'eroz'); ?></a> <span class="fa-chevron-right"></span> <strong><?php single_cat_title(); ?></strong></p>
     <?php } else { ?>
