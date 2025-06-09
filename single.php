@@ -49,7 +49,7 @@ if(have_posts()) : while(have_posts()) : the_post();?>
 				$video_0 = $embed_ace;
 			} 
 
-            if (strpos($video_0, '[fvplayer') !== false) { $video_0 = do_shortcode($video_0); }
+            if ($video_0 && strpos($video_0, '[fvplayer') !== false) { $video_0 = do_shortcode($video_0); }
             if($video_0){$videos[] = $video_0;}
         }
 

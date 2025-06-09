@@ -66,11 +66,11 @@ function pagination_pornstar()
 	$number = get_option('pornstar_page_number', false);
 	if (!$number)
 		$number = 10;
-	$episodes = get_terms('toro_pornstar', array(
-		'hide_empty'    => 0,
-		'number'        => 30000,
-	));
-	$categories = count($episodes);
+        $episodes = get_terms('toro_pornstar', array(
+                'hide_empty'    => 0,
+                'number'        => 30000,
+        ));
+        $categories = is_countable($episodes) ? count($episodes) : 0;
 	global $wp_query, $wp_rewrite;
 	$wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
 	$pagination = array(

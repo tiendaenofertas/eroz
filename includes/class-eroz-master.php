@@ -4,6 +4,15 @@ class EROZ_Master
     protected $cargador;
     protected $theme_name;
     protected $version;
+    protected $bct_admin;
+    protected $bct_public;
+    protected $eroz_public_ajax;
+    protected $eroz_admin_ajax;
+    protected $toro_create_taxonomy;
+    protected $toro_permalink;
+    protected $eroz_support;
+    protected $sidebar;
+    protected $cpt;
     /*Construct*/
     public function __construct()
     {
