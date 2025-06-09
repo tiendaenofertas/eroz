@@ -81,11 +81,11 @@ function get_titles_pages(){
     } elseif(is_singular()){
         $title = get_the_title( $post->ID );
     } elseif(is_category()){
-        $title = single_cat_title();
+        $title = single_cat_title('', false);
     } elseif(is_tag()){
-        $title = single_cat_title();
+        $title = single_tag_title('', false);
     } elseif(is_tax()){
-        $title = single_cat_title();
+        $title = single_term_title('', false);
     } elseif(is_search()){
         $title = get_search_query();
     } elseif(is_404()){
